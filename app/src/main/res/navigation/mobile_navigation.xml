@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.sample.weatherapp.ui.fragment.homefragment.HomeFragment"
+        android:label="@string/home_fragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_summary"
+            app:destination="@id/navigation_summary" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_summary"
+        android:name="com.sample.weatherapp.ui.fragment.summaryfragment.SummaryFragment"
+        android:label="@string/summary_fragment"
+        tools:layout="@layout/fragment_summary">
+
+        <argument
+            android:name="weather_response"
+            app:argType="com.sample.data.WeatherResponse" />
+
+        <action
+            android:id="@+id/action_navigation_summary_to_navigation_details"
+            app:destination="@id/navigation_details" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.sample.weatherapp.ui.fragment.detailsfragment.DetailsFragment"
+        android:label="@string/details_fragment"
+        tools:layout="@layout/fragment_details">
+
+        <argument
+            android:name="city_name"
+            app:argType="string" />
+
+        <argument
+            android:name="cloud_description"
+            app:argType="string" />
+
+        <argument
+            android:name="temp"
+            app:argType="string" />
+
+        <argument
+            android:name="feels_like"
+            app:argType="string" />
+
+    </fragment>
+</navigation>
